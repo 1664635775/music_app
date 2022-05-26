@@ -1,16 +1,14 @@
 <template>
   <div>
-    <router-view></router-view>
+    <p>search</p>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'MusicAppApp'
+  name: "SearchIndex",
 };
 </script>
 
-<style  scoped>
-
+<style lang="scss" scoped>
 </style>
