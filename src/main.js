@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 
 Vue.config.productionTip = false
-import { Button,NavBar,Tabbar, TabbarItem,Col, Row,Image as VanImage,Cell, CellGroup,Icon} from 'vant';
+import { Search,Button,NavBar,Tabbar, TabbarItem,Col, Row,Image as VanImage,Cell, CellGroup,Icon} from 'vant';
 Vue.use(Button);
 Vue.use(NavBar);
 Vue.use(Tabbar);
@@ -14,13 +14,14 @@ Vue.use(VanImage);
 Vue.use(Cell);
 Vue.use(CellGroup);
 Vue.use(Icon);
+Vue.use(Search);
 
-// import { recommendMusicApi } from "@/api";
-// async function myfun() {
-//   const res = await recommendMusicApi({limit:6});
-//   console.log(res);   
-// }
-// myfun()
+import { searchMusicApi } from "@/api";
+async function myfun() {
+  const res = await searchMusicApi({keywords:'海阔天空'});
+  console.log(res);   
+}
+myfun()
 // axio测试
 
 new Vue({

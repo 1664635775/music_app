@@ -8,7 +8,7 @@
       </van-col>
     </van-row>
 
-    <div class="header">推荐歌单</div>
+    <div class="header">最新音乐</div>
     <van-cell :title="obj.name"  center v-for="obj in newsongList" :key="obj.id"
     :label="obj.song.artists[0].name">
       <template #right-icon>
@@ -46,7 +46,7 @@ export default {
 }
 
 .header {
-  background-color: dimgrey;
+  background-color: #4fc08d;
   margin: 5px 0;
 }
 
