@@ -16,12 +16,12 @@ Vue.use(CellGroup);
 Vue.use(Icon);
 Vue.use(Search);
 
-import { searchMusicApi } from "@/api";
-async function myfun() {
-  const res = await searchMusicApi({keywords:'海阔天空'});
-  console.log(res);   
-}
-myfun()
+// import { searchMusicApi } from "@/api";
+// async function myfun() {
+//   const res = await searchMusicApi({keywords:'海阔天空'});
+//   console.log(res);   
+// }
+// myfun()
 // axio测试
 
 new Vue({
