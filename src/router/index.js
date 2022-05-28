@@ -3,8 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '@/views/Home/index.vue'
 import Search from '@/views/Search/index.vue'
 import Layout from '@/views/Layout/index.vue'
-
-
+import Play from '@/views/Play/index.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -32,6 +31,13 @@ const routes = [
         }
       }
     ]
+  },
+  {
+    path:'/play',
+    component:Play,
+    meta:{
+      title:'播放'
+    }
   }
 ]
 

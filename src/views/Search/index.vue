@@ -7,46 +7,43 @@
     <div class="li_song" v-if="this.songlist.length === 0">
       <p>实时热搜</p>
       <ul>
-        <li class="hot_item" v-for="obj in daysonglist" :key="obj.id" v-on:click="onsearch(obj.name)">{{obj.name}}</li>
+        <li class="hot_item" v-for="obj in daysonglist" :key="obj.id" v-on:click="onsearch(obj.name)">{{ obj.name }}</li>
       </ul>
     </div>
 
     <!-- 搜索结果 -->
     <div class="song" v-else>
       <p>最佳匹配</p>
-      <van-cell :title="obj.name" center  :label="obj.artists[0].name" v-for="obj in songlist" :key="obj.id">
-        <template #right-icon>
-          <van-icon name="play-circle-o" />
-        </template>
-      </van-cell>
+      <song-item :name="obj.name" :author="obj.artists[0].name" v-for="obj in songlist" :key="obj.id">
+      </song-item>
     </div>
 
   </div>
 </template>
 
 <script>
-import { searchMusicApi,newMusicApi } from '@/api';
-
+import { searchMusicApi, newMusicApi } from '@/api';
+import SongItem from '@/components/songItem.vue'
 export default {
   name: "SearchIndex",
   data() {
     return {
       searchValue: '',
       songlist: [],
-      daysonglist:[],
+      daysonglist: [],
       timer: null
     };
   },
 
-  async created(){
+  async created() {
     const res = await newMusicApi()
     this.daysonglist = res.data.result;
   },
 
-  methods:{
+  methods: {
     async onsearch(val) {
       this.searchValue = val
-      const res = await searchMusicApi({keywords: this.searchValue})
+      const res = await searchMusicApi({ keywords: this.searchValue })
       this.songlist = res.data.result.songs
       setTimeout(() => {
         clearTimeout(this.timer)
@@ -55,16 +52,20 @@ export default {
   },
 
   watch: {
-    async searchValue(){
+    async searchValue() {
       clearTimeout(this.timer)
-      if(this.searchValue.length === 0){
+      if (this.searchValue.length === 0) {
         return this.songlist = []
       }
       this.timer = setTimeout(async () => {
-      const res = await searchMusicApi({keywords: this.searchValue})
-      this.songlist = res.data.result.songs
+        const res = await searchMusicApi({ keywords: this.searchValue })
+        this.songlist = res.data.result.songs
       }, 2000);
     }
+  },
+
+  components: {
+    SongItem
   }
 };
 </script>

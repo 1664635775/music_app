@@ -9,17 +9,16 @@
     </van-row>
 
     <div class="header">最新音乐</div>
-    <van-cell :title="obj.name"  center v-for="obj in newsongList" :key="obj.id"
-    :label="obj.song.artists[0].name">
-      <template #right-icon>
-        <van-icon name="play-circle-o" />
-      </template>
-    </van-cell>
+    <song-item :name="obj.name"  v-for="obj in newsongList" :key="obj.id"
+    :author="obj.song.artists[0].name" :id="obj.id">
+    </song-item>
+    
   </div>
 </template>
 
 <script>
 import { recommendMusicApi,newMusicApi } from "@/api";
+import  SongItem  from "@/components/songItem.vue";
 export default {
   name: "HomeIndex",
   data() {
@@ -34,6 +33,10 @@ export default {
     const newSong = await newMusicApi();
     // console.log(newSong);
     this.newsongList = newSong.data.result;
+  },
+
+  components: {
+    SongItem
   }
 
 };
