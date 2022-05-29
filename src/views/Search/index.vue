@@ -14,7 +14,7 @@
     <!-- 搜索结果 -->
     <div class="song" v-else>
       <p>最佳匹配</p>
-      <song-item :name="obj.name" :author="obj.artists[0].name" v-for="obj in songlist" :key="obj.id">
+      <song-item :name="obj.name" :author="obj.artists[0].name" v-for="obj in songlist" :key="obj.id" :id="obj.id">
       </song-item>
     </div>
 

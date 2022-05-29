@@ -4,6 +4,7 @@ import Home from '@/views/Home/index.vue'
 import Search from '@/views/Search/index.vue'
 import Layout from '@/views/Layout/index.vue'
 import Play from '@/views/Play/index.vue'
+import Comment from '@/views/Comment/index.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -37,6 +38,13 @@ const routes = [
     component:Play,
     meta:{
       title:'播放'
+    }
+  },
+  {
+    path:'/comment',
+    component: Comment,
+    meta:{
+      titie:'评论'
     }
   }
 ]

@@ -12,3 +12,7 @@ export const getLyricById = (id) => request({
   method: "GET"
 })
 
+export const getComment = (params) => request({
+  url:`/comment/music`,
+  params
+})

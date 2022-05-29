@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 
 Vue.config.productionTip = false
-import { Search,Button,NavBar,Tabbar, TabbarItem,Col, Row,Image as VanImage,Cell, CellGroup,Icon} from 'vant';
+import {List,PullRefresh, Search,Button,NavBar,Tabbar, TabbarItem,Col, Row,Image as VanImage,Cell, CellGroup,Icon} from 'vant';
 Vue.use(Button);
 Vue.use(NavBar);
 Vue.use(Tabbar);
@@ -15,17 +15,23 @@ Vue.use(Cell);
 Vue.use(CellGroup);
 Vue.use(Icon);
 Vue.use(Search);
+Vue.use(PullRefresh);
+Vue.use(List);
 
-// import { getSongByIdApi, getLyricByIdApi } from '@/api'
-// async function myfun() {
-//   const res = await getSongByIdApi(347231);
-//   console.log(res);   
-// }
+import { LoginMusicApi } from '@/api'
+// import { getCommentApi } from '@/api'
+async function myfun() {
+  const res = await LoginMusicApi({
+    email:'sowegn2941@163.com',
+    password:'20011031Czczcz'
+  });
+  console.log(res);   
+}
+myfun()
 // async function myfun1() {
-//   const res = await getLyricByIdApi(347233);
+//   const res = await getCommentApi(347233);
 //   console.log(res);   
 // }
-// myfun()
 // myfun1()
 // axio测试
 

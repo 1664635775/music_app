@@ -1,8 +1,8 @@
 <template>
   <div>
-    <van-cell :title="name" center :label="author">
+    <van-cell :title="name" center :label="author" @click="comment">
       <template #right-icon>
-        <van-icon name="play-circle-o" @touchstart="playMusic" size="1.6rem"/>
+        <van-icon name="play-circle-o" @click.stop="playMusic" size="1.6rem"/>
       </template>
     </van-cell>
   </div>
@@ -22,6 +22,14 @@ export default {
         path:'/play',
         query:{
           id: this.id
+        }
+      })
+    },
+    comment(){
+      this.$router.push({
+        path:'/comment',
+        query:{
+          id:this.id
         }
       })
     }
